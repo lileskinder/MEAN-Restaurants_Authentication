@@ -1,0 +1,8 @@
+<h1>Information about the {{vm.restaurant.name}} restaurant</h1>
+
+<p>
+    <b>Address:</b>  {{vm.restaurant.address}} <br>
+</p>
+
+<button type="button" ng-click="vm.deleteRestaurant()">Delete</button><br>
+<span ng-show="showDeleted" style="color: red;">{{vm.restaurant.name}} deleted!</span><br>

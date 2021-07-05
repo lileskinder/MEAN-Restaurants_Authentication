@@ -1,0 +1,35 @@
+<h1>
+    {{vm.title}}
+</h1>
+
+<div class="main-page">
+
+    <ul class="resList">
+        <h1>List of Restaurants.</h1>
+        <input type="text" ng-model="vm.search"> 
+        <button class="btn-primary" ng-click="vm.searching()"> Search </button>
+        <li ng-repeat="restaurant in vm.restaurants | filter: vm.search">
+            <a ng-href="#!/restaurants/{{restaurant._id}}">{{restaurant.name}}</a>
+        </li>
+
+    </ul>
+
+    <form ng-show={{vm.isLoggedIn()}} name="vm.restaurantForm" ng-submit="vm.addRestaurant()">
+        Add a new Restaurant <br>
+
+        Name: <br><input type="text" name="name" required ng-model="vm.newRestaurantName" style="color: black;" />
+        <span ng-show="vm.restaurantForm.name.$touched && vm.restaurantForm.name.$invalid" style="color: red;">The name
+            is required.</span><br>
+
+        Address:<br> <input type="text" name="address" required ng-model="vm.newRestaurantAddress" style="color: black;" />
+        <span ng-show="vm.restaurantForm.address.$touched && vm.restaurantForm.address.$invalid" style="color: red;">The
+            address is required.</span><br>
+
+
+
+        <button type="submit" class="btn-success">Add Restaurant</button><br>
+        <span ng-show="showAdded" style="color: red;">{{vm.newRestaurantName}} Added!</span><br>
+    </form>
+
+
+</div>
